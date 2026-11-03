@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
 class TachesController {
-    @GetMapping("/taches")
+    @GetMapping("admin/taches")
     fun tachesAdmin(): String {
         return "admin/taches"
     }
