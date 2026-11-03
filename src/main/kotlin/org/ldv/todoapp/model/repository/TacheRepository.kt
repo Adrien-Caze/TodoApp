@@ -1,4 +1,7 @@
 package org.ldv.todoapp.model.repository
 
-interface TacheRepository {
+import org.ldv.todoapp.model.entity.Tache
+import org.springframework.data.jpa.repository.JpaRepository
+
+interface TacheRepository : JpaRepository<Tache, Long> {
 }
