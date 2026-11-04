@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{base :: base(~{::content}, 'TodoApp-Mes taches', 'mes-taches-admin')}">
-<div th:fragment="content">
-    <h1>Page mes-taches</h1>
-    <p>Cette page de gestion des taches pour l'admin</p>
+      th:replace="~{base :: base(~{::content}, 'TodoApp-Tâches', 'admin/taches')}">
+<div th:fragment="content" class="container py-4">
+    <!-- Titre de la page -->
+    <h1 class="mb-4">
+        <i class="bi bi-card-checklist"></i> Gestion des tâches
+    </h1>
+    <!-- Présentation de la page -->
+    <p class="text-muted">
+        Liste de l'ensemble des tâches enregistrées dans l'application TodoApp.
+    </p>
+    <!-- Aucune tâche enregistrée -->
+    <div th:if="${#lists.isEmpty(listeTaches)}" class="alert alert-info" role="alert">
+        <i class="bi bi-info-circle"></i> Aucune tâche enregistrée.
+    </div>
+    <!-- Tableau des tâches -->
+    <div th:if="${not #lists.isEmpty(listeTaches)}"
+         class="card shadow-sm">
+        <!-- En-tête de la carte -->
+        <div class="card-header">
+            <h2 class="h5 mb-0">
+                <i class="bi bi-list-task"></i> Liste des tâches
+                <span class="badge text-bg-secondary" th:text="${#lists.size(listeTaches)}"></span>
+            </h2>
+        </div>
+
+    </div>
 </div>
 </html>
